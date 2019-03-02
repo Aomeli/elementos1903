@@ -55,4 +55,10 @@ public class Usuario {
         this.localizacion = localizacion;
     }
 
+    static class u {
+
+        public u() {
+        }
+    }
+
 }
