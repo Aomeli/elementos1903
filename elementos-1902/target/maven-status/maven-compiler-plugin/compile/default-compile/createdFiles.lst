@@ -1,8 +1,8 @@
 org\unitec\elementos\ControladorUsuario.class
 org\unitec\elementos\Localizacion.class
+org\unitec\elementos\ElementosApplication.class
 org\unitec\elementos\RepoUsuario.class
 org\unitec\elementos\Usuario.class
-org\unitec\elementos\ElementosApplication.class
-org\unitec\elementos\Usuario$u.class
 org\unitec\elementos\ControladorHola.class
+org\unitec\elementos\Usuario$u.class
 org\unitec\elementos\Estatus.class
