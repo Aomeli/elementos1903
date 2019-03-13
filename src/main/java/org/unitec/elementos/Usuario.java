@@ -9,27 +9,13 @@ import org.springframework.data.annotation.Id;
 
 /**
  *
- * @author campitos
+ * @author SE
  */
 public class Usuario {
-
     @Id
     private Integer id;
     private String nombre;
     private Localizacion localizacion;
-
-    @Override
-    public String toString() {
-        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", localizacion=" + localizacion + '}';
-    }
-
-    public Usuario() {
-    }
-
-    public Usuario(Integer id, String nombre) {
-        this.id = id;
-        this.nombre = nombre;
-    }
 
     public Integer getId() {
         return id;
@@ -55,10 +41,18 @@ public class Usuario {
         this.localizacion = localizacion;
     }
 
-    static class u {
-
-        public u() {
-        }
+    public Usuario() {
     }
 
+    public Usuario(Integer id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
+    }
+
+    
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", localizacion=" + localizacion + '}';
+    }
+    
 }

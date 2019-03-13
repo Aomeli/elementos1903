@@ -9,10 +9,34 @@ package org.unitec.elementos;
  *
  * @author T-107
  */
-class Estatus {
+public class Estatus {
+    private String mensaje;
+    private boolean success;
 
-    Estatus(String usuario_guardado, boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Estatus() {
+    }
+
+    public Estatus(String mensaje, boolean success) {
+        this.mensaje = mensaje;
+        this.success = success;
+    }
+
+    
+    
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
     
 }

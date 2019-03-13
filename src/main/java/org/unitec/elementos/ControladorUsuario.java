@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.unitec.elementos;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,49 +16,52 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author campitos
+ * @author T-107
  */
 
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
 public class ControladorUsuario {
- @Autowired RepoUsuario repoU;
- @PostMapping("/usuario")
- Estatus guardar (@RequestBody String json)throws Exception
- {
+    @Autowired RepoUsuario repoU;    
+//1.-guardar :save()
+    @PostMapping("/usuario")
+    Estatus guardar(@RequestBody String json)throws Exception{
     
-    ObjectMapper maper =new ObjectMapper();
-    Usuario u = maper.readValue(json,Usuario.class);
-    repoU.save(u);
-    Estatus e=new Estatus ("Usuario guardado",true);
-    return e;
-}
+        ObjectMapper maper=new ObjectMapper();
+        Usuario u=maper.readValue(json, Usuario.class);
+        repoU.save(u);
+        Estatus e=new Estatus("Usuario guardado",true);
+        return e;
+    }
+    
+    //2. buscar todos
     @GetMapping("/usuario")
-    List<Usuario>buscarTodos(){
+    List<Usuario> buscarTodos(){
         return repoU.findAll();
     }
     
-      @GetMapping("/usuari/{id}")
+    //3. buscar por id
+    @GetMapping("/usuario/{id}")
     Usuario buscarPorId(@PathVariable Integer id){
-        return repoU.findById(id).get();    
+        return repoU.findById(id).get();
     }
-     @PutMapping("/usuario")
-     Estatus actualizar(@RequestBody String json)throws Exception{
-         ObjectMapper mapper=new ObjectMapper();
-                 Usuario u=mapper.readValue(json, Usuario.class);
-                 repoU.save(u);
-                 Estatus e=new Estatus ("Usuario actualizado",true);
-                 return e;
-         
-     }
-     
-          @DeleteMapping("/usuario/{id}")
+    
+    //4.AEctualizar
+    @PutMapping("/usuario")
+    Estatus actualizar(@RequestBody String json)throws Exception{
+        ObjectMapper mapper=new ObjectMapper();
+        Usuario u=mapper.readValue(json, Usuario.class);
+        repoU.save(u);
+        Estatus e=new Estatus("usuario actualizado", true);
+        return e;
+    }
+    
+    //5. Borrar
+    @DeleteMapping("/usuario/{id}")
     Estatus borrar(@PathVariable Integer id){
         repoU.deleteById(id);
-        Estatus e=new Estatus ("Usuario borrado",true);
-                 return e;
-     
-     }
-   
+        Estatus e=new Estatus("Usuario borrado", true);
+        return e;
+    }
 }
